@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="yong.emp">
+  	<insert id="empInsert" parameterType="yong.emp.model.EmpDTO">
+  		insert into
+  			employee
+  		values(employee_idx.nextval,
+  			#{name},
+  			#{email},
+  			#{dept})
+  	</insert>
+  	
+  	<delete id="empDelete" parameterType="String">
+  		delete from
+  		employee
+  		where name=#{name}
+  	</delete>
+  	<select id="empAllList" resultType="yong.emp.model.EmpDTO">
+  		select * from employee
+  		order by idx desc
+  	</select>
+  	<select id="empFind" parameterType="String" resultType="yong.emp.model.EmpDTO">
+  		select * from employee
+  		where name=#{name}
+  	</select>
+  	<update id="empUpdate" parameterType="yong.emp.model.EmpDTO">
+  		update employee
+  		set
+  		email=#{email},
+  		dept=#{dept}
+  		where name=#{name} 
+  	</update>
+  </mapper>

@@ -1,0 +1,49 @@
+package yong.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ExtendedModelMap;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.*;
+@Controller
+public class ModelController {
+
+	@RequestMapping("/modelTest.do")
+	public String modelTest(Map model){
+		
+		model.put("result", "Map객체를 이용한 데이터 전달!");
+		return "model/modelResult";
+	}
+	
+	@RequestMapping("/modelTest2.do")
+	public String modelTest2(Model model){
+		model.addAttribute("result", "Model객체를 이용한 데이터 전달!");
+		return "model/modelResult";
+	}
+	
+	@RequestMapping("/modelTest3.do")
+	public String modelTest3(ModelMap mm){
+		
+		mm.addAttribute("result", "ModelMap객체를 이요한 데이터 전달");
+		
+		return "model/modelResult";
+	}
+	
+//	@RequestMapping("/model/modelResult.do")
+//	public Map modelTest4(){
+//		Map model = new HashMap();
+//		model.put("result", "Map을 반환해서 돌려준 데이터");
+//		return model;
+//	}
+	
+	@RequestMapping("/model/modelResult.do")
+	public Model modelTest5(){
+		Model model = new ExtendedModelMap(); //ExtendedModelMap외우기
+		model.addAttribute("result", "Model객체를 생성해 반환한 데이터 전달!");
+		return model;
+	}
+	
+	
+}

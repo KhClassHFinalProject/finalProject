@@ -1,0 +1,13 @@
+package finalp.contoroller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class IndexConroller {
+
+	@RequestParam("/index.do")
+	public String goIndex(){
+		
+	}
+}

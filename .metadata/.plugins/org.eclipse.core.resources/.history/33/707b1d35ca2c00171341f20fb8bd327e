@@ -1,0 +1,32 @@
+package yong.order.model;
+
+public class MarketInfo {
+
+		private String marketname;
+		private String marketaddr;
+		
+		public MarketInfo() {
+			super();
+		}
+		
+		public MarketInfo(String marketname, String marketaddr) {
+			super();
+			this.marketname = marketname;
+			this.marketaddr = marketaddr;
+		}
+		
+		public String getMarketname() {
+			return marketname;
+		}
+		public void setMarketname(String marketname) {
+			this.marketname = marketname;
+		}
+		public String getMarketaddr() {
+			return marketaddr;
+		}
+		public void setMarketaddr(String marketaddr) {
+			this.marketaddr = marketaddr;
+		}
+		
+		
+}

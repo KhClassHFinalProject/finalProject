@@ -1,0 +1,40 @@
+package yong.order.model;
+
+public class KakaItem {
+	
+	private String kakaname;
+	private int num;
+	private String bigo;
+	
+	
+	public KakaItem() {
+		super();
+	}
+	public KakaItem(String kakaname, int num, String bigo) {
+		super();
+		this.kakaname = kakaname;
+		this.num = num;
+		this.bigo = bigo;
+	}
+	public String getKakaname() {
+		return kakaname;
+	}
+	public void setKakaname(String kakaname) {
+		this.kakaname = kakaname;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public String getBigo() {
+		return bigo;
+	}
+	public void setBigo(String bigo) {
+		this.bigo = bigo;
+	}
+	
+	
+	
+}

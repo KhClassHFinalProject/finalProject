@@ -1,0 +1,54 @@
+package yong.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class AnimeController {
+	
+	////////////////////////////////////////////////////
+	//ModelAttribute 덕에
+	//AnimeController 를 지나가는 모든 과정에 거쳐간다.
+	@ModelAttribute("aniList")
+	public String[] getAnimeList(){
+		String str[]={"포켓몬스터","건담W","세일러문","라젠카","다간"};
+		return str;
+	}
+	@ModelAttribute("cate")
+	public String[] getCategory(){
+		String category[] = {"한국","일본","미국"};
+		return category;
+	}
+	////////////////////////////////////////////////////
+	
+	@RequestMapping("/animeA.do")
+	public ModelAndView animeA(){
+		
+//		String str[]={"포켓몬스터","건담W","세일러문","라젠카","다간"};
+		
+//		String category[] = {"한국","일본","미국"};
+		
+		
+		ModelAndView mav = new ModelAndView();
+//		mav.addObject("aniList", getAnimeList());	//modelattribute 덕
+//		mav.addObject("cate", getCategory());
+		mav.setViewName("anime/animeA");
+		return mav;
+	}
+	
+	@RequestMapping("/animeB.do")
+	public String animeB(Model model){
+		
+//		String str[]={"포켓몬스터","건담W","세일러문","라젠카","다간"};
+//		String category[] = {"한국","일본","미국"};
+		
+		
+//		model.addAttribute("aniList",getAnimeList());
+//		model.addAttribute("cate", getCategory());
+		
+		return "anime/animeB";
+	}
+}

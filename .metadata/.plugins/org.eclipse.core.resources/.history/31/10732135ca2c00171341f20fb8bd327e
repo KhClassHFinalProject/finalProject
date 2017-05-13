@@ -1,0 +1,79 @@
+package yong.controller;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.http.HttpRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ParamTestController {
+	
+	@RequestMapping("/paramTest.do")
+	public ModelAndView paramTest
+		(@RequestParam(value="str",required=false)String str,
+			@RequestParam(value="idx",defaultValue="1")int idx){//자동으로 int로 파싱해준다
+		System.out.println("str = "+ str);
+		System.out.println("idx = "+ idx);
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("param/paramOk");
+		return mav;
+	}
+	
+	@RequestMapping("/cookieView.do")
+	public ModelAndView cookieView
+		(@CookieValue(value="saveid",defaultValue="noId")String saveid){
+		
+		System.out.println("saveid : "+saveid);
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("param/paramOk");
+		return mav;
+		
+	}
+	
+	@RequestMapping("/cookieMake.do")
+	public ModelAndView cookieMake(HttpServletResponse resp){
+		//1.쿠키 객체 생성
+		Cookie ck = new Cookie("saveid", "hong");
+		//2.쿠키 나이 지정
+		ck.setMaxAge(60*3);//3분
+		//3.쿠키 사용자에게 심기
+		resp.addCookie(ck);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("param/paramOk");
+		return mav;
+	}
+	
+	@RequestMapping("/sessionView.do")
+	public ModelAndView sessionView(HttpSession session){
+		
+		String sname = (String)session.getAttribute("sname");
+		
+		System.out.println("sname : "+sname);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("param/paramOk");
+		return mav;
+	}
+	
+	@RequestMapping("/sessionMake.do")
+	public ModelAndView sessionMake(HttpServletRequest req){
+		
+		HttpSession session = req.getSession();
+		
+		session.setAttribute("sname", "홍길동");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("param/paramOk");
+		return mav;
+	}
+	
+}

@@ -1,0 +1,33 @@
+package yong.order.model;
+
+import java.util.*;
+
+
+public class OrderDTO {
+
+	private List<KakaItem> kakaitem;
+	private MarketInfo marketinfo;
+	
+	public OrderDTO() {
+		super();
+	}
+	public OrderDTO(List<KakaItem> kakaitem, MarketInfo marketinfo) {
+		super();
+		this.kakaitem = kakaitem;
+		this.marketinfo = marketinfo;
+	}
+	public List<KakaItem> getKakaitem() {
+		return kakaitem;
+	}
+	public void setKakaitem(List<KakaItem> kakaitem) {
+		this.kakaitem = kakaitem;
+	}
+	public MarketInfo getMarketinfo() {
+		return marketinfo;
+	}
+	public void setMarketinfo(MarketInfo marketinfo) {
+		this.marketinfo = marketinfo;
+	}
+	
+	
+}

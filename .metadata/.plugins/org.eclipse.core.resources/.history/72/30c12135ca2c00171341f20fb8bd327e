@@ -1,0 +1,35 @@
+package yong.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ViewTestController {
+	
+	//명시적 뷰 지정방법
+	@RequestMapping("/viewTest.do")
+	public ModelAndView viewTest(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("view/viewOk");
+		return mav;
+	}
+	
+	//명시적 뷰 지정방법 2 (String으로 뷰에대한 이름 명시)
+	@RequestMapping("/viewTest2.do")
+	public String viewTest2(){
+		return "view/viewOk";
+	}
+	
+	//묵시적 뷰 지정방법 (뷰의 주소경로를 명령어로 사용)
+	@RequestMapping("/view/viewOk.do")
+	public void viewTest3(){
+		
+	}
+	
+	@RequestMapping("/viewTest3.do")
+	public String viewTest4(){
+		System.out.println("viewTest3.do 명령어 호출됨");
+		return "redirect:/hello.do";
+	}
+}

@@ -1,0 +1,47 @@
+package yong.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import yong.memo.model.MemoDAO;
+import yong.memo.model.MemoDTO;
+
+@Controller
+@RequestMapping("/memoWrite.do")
+public class MemoController {
+	
+	@Autowired
+	private MemoDAO memoDao; //dispatcher-servlet.xml의 service부분의 id값을 이름으로
+	
+//	@RequestMapping(value="/memoWrite.do",method=RequestMethod.GET)	// '/'표시는 프로젝트 부터라는 표시다
+	@RequestMapping(method=RequestMethod.GET)
+	public ModelAndView memoWriteForm(){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("memo/memoWriteForm");
+		return mav;
+	}
+	
+//	@RequestMapping(value="/memoWrite.do", method=RequestMethod.POST)	// '/'표시는 프로젝트 부터라는 표시다
+	@RequestMapping(method=RequestMethod.POST)
+	public ModelAndView memoWriteSubmit(@ModelAttribute("dto")MemoDTO dto){
+		
+		System.out.println(dto.toString());
+		
+		int result = memoDao.memoWrite(dto);
+		if(result>0){
+			System.out.println("db입력 성공!!");
+		}else{
+			System.out.println("db입력 실패...");
+		}
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("memo/memoSuccess");
+		return mav;
+	}
+	
+}

@@ -1,0 +1,112 @@
+package yong.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import yong.file.model.FileDTO;
+
+import java.io.*;
+import java.util.*;
+
+@Controller
+public class FileController {
+	
+	@RequestMapping("/fileUploadForm.do")
+	public String fileUploadForm(){
+		
+		return "file/fileUploadForm";
+	}
+	
+	@RequestMapping("/fileUpload1.do")	//이메소드 수행전에 업로드가 완료되버린다.
+	public String fileUpload1(			//때문에 업로드된 파일에 대한 정보를 얻어내야 한다.
+		@RequestParam("writer")String writer,
+		@RequestParam("upload")MultipartFile upload){		
+		
+		
+//		System.out.println("작성자 이름 : " + writer);
+//		System.out.println("업로드 파일 이름 : " + upload.getOriginalFilename());
+//		System.out.println("업로드 파일 사이즈 : "+upload.getSize());
+		
+		copyInto(writer,upload);
+		
+		return "file/fileOk";
+	}
+	/**실제 파일을 복사해주는 메서드*/
+	public void copyInto(String writer,
+			MultipartFile upload){
+		
+		System.out.println("작성자 : "+writer);
+		System.out.println("파일이름 : "+upload.getOriginalFilename());
+		
+		try {
+			byte bytes[] = upload.getBytes();
+			File outFile = new File("/Users/gimdaewon/Documents/upload/"
+												+upload.getOriginalFilename());
+			FileOutputStream fos = new FileOutputStream(outFile);
+			fos.write(bytes);
+			fos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@RequestMapping("/fileUpload2.do")
+	public String fileUpload2(
+			MultipartHttpServletRequest req){	//스프링에서 제공하는 파일정보를 담을수 있는
+		
+		String writer = req.getParameter("writer");
+		MultipartFile upload = req.getFile("upload");
+		copyInto(writer,upload);
+		
+		return "file/fileOk";
+	}
+	
+	@RequestMapping("/fileUpload3.do")
+	public String fileUpload3(FileDTO dto){
+		
+		copyInto(dto.getWriter(), dto.getUpload());
+		
+		return "file/fileOk";
+	}
+	
+	@RequestMapping("/fileUploadMulti.do")
+	public String fileUploadMulti(
+			@RequestParam("writer")String writer,
+			@RequestParam("upload")List<MultipartFile> upload){
+		
+		for(MultipartFile temp:upload){
+			copyInto(writer,temp);
+		}
+		
+		return "file/fileOk";
+	}
+	
+	@RequestMapping("/fileDownList.do")
+	public ModelAndView fileList(){
+		File f = new  File("/Users/gimdaewon/Documents/upload");
+		File files[] = f.listFiles();
+		System.out.println("files[]"+files[1].getName());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("files",files);
+		mav.setViewName("file/fileList");
+		return mav;
+	}
+	
+	@RequestMapping("/down.do")
+	public ModelAndView downloadFile(
+			@RequestParam("filename")String filename){
+		
+		File f = new File("/Users/gimdaewon/Documents/upload/"+filename);
+		
+		ModelAndView mav = new ModelAndView("yongDown");
+		
+		mav.addObject("downloadFile",f);
+		return mav;
+	}
+	
+}

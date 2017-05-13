@@ -1,0 +1,98 @@
+package yong.member.model;
+
+import java.sql.*;
+import java.util.*;
+
+public class MemberDAOImple implements MemberDAO {
+	private Connection conn;
+	private PreparedStatement ps;
+	private ResultSet rs;
+	
+	public int memberJoin(MemberDTO dto) {
+		try {
+			conn = yong.db.YongDB.getConn();
+			String sql = "insert into jsp_member values(jsp_member_idx.nextval,?,?,?,?,?,sysdate)";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, dto.getId());
+			ps.setString(2, dto.getPwd());
+			ps.setString(3, dto.getName());
+			ps.setString(4, dto.getTel());
+			ps.setString(5, dto.getAddr());
+			int count = ps.executeUpdate();
+			
+			return count;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		} finally {
+			try {
+				if(ps!=null)ps.close();
+				if(conn!=null)conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+	}
+
+	public int memberIdCheck(String id) {
+		try {
+			conn = yong.db.YongDB.getConn();
+			String sql = "select count(*) from jsp_member where id='"+id+"'";
+			ps = conn.prepareStatement(sql);
+			int count=0;
+			rs = ps.executeQuery();
+			if(rs.next()){
+				count = rs.getInt(1);
+				System.out.println("count : "+count);
+				return count;
+			}
+			
+			
+			return -2;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		} finally {
+			try {
+
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+	
+	public int memberLogin(String id, String pwd){
+		try{
+			conn = yong.db.YongDB.getConn();
+			String sql = "select pwd from jsp_member where id=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			String pwd_db = "";
+			if(rs.next()){
+				 pwd_db = rs.getString(1);
+			}
+			if(pwd_db.equals(pwd)){
+				return 1;
+			}else{
+				return 0;
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(ps!=null)ps.close();
+				if(conn!=null)conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+
+}
