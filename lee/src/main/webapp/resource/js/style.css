@@ -1,0 +1,26 @@
+body{margin:0px; padding:0px;}
+ul , li , a {margin:0px; padding:0px; list-style:none; text-decoration:none; color:#000000}
+
+table {background:rgba(57,57,57,0.7); float:left}
+table td{ border-radius:35px 35px; width:50px; height:50px; text-align:center; color:#ffffff;}
+table td div{cursor:pointer}
+table td:first-child{color:#ff0000}
+table td:last-child{color:#0000ff}
+table tr:not(.day) td:not(#current):hover {background:rgba(57,57,57,0.5)}
+table button {background:rgba(57,57,57,0.5); color:#ffffff; border:2px solid rgb(57,57,57); padding:5px}
+
+#current { color:#000000;}
+#today {font-size:23px;font-weight:900}
+#special {color:#ff0000}
+#special p {font-size:12px}
+#current_text {margin:0 20px}
+#information{ 
+    float:left; 
+    width:200px; 
+    height:100px;
+    border:3px dotted #000000; 
+    background:#565656;
+    display:none;
+    color:#ffffff;
+    padding:20px
+    }
