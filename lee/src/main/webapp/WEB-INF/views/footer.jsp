@@ -69,16 +69,6 @@
 				classie.toggle(menuBottom, 'cbp-spmenu-open');
 				console.log('아웃3');
 			} */
-			
-	////////////////////////////////////////////////////////////
-					
-		$(window).scroll(function(){
-			$(menuBottom).removeClass('cbp-spmenu-open');
-		});
-					
-		$(showBottom).click(function(){
-			document.body.scrollTop = document.body.scrollHeight;
-		});
 		</script>
 	</footer>
 </body>
