@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="ju.member">
+  
+  <select id="memSELcheckmail" parameterType="String" resultType="int">
+  	select count(*) from
+  	member
+  	where mem_id=#{mem_id}
+  </select>
+  
+  <select id="memSELcheckhp" parameterType="String" resultType="int">
+  	select count(*) from
+  	member
+  	where mem_hp=#{mem_hp}
+  </select>
+
+<insert id="memINSjoin" parameterType="ju.dto.MemberDTO">
+	insert into member
+	values(
+	#{mem_idx},
+	#{mem_id},
+	#{mem_pwd},
+	#{mem_name},
+	#{mem_hp},
+	#{mem_addr},
+	#{mem_hint},
+	#{mem_answer},
+	#{mem_birth},
+	#{mem_like}
+	)
+</insert>
+
+<select id="memSELlogin" parameterType="map" resultType="ju.dto.MemberDTO">
+	select * from
+	member
+	where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
+</select>
+
+<select id="memSELcheckban" parameterType="String" resultType="int">
+	select count(*) from
+	banlist
+	where MEM_IDX=#{mem_idx} and BAN_START <![CDATA[<=]]> SYSDATE and BAN_END <![CDATA[>=]]> SYSDATE
+</select>
+
+<select id="holidaySELget" parameterType="String" resultType="ju.dto.HolidayDTO">
+	select * from (select * from holiday order by solar_date)a
+	where
+	${wh}
+</select>
+  </mapper>
