@@ -3,8 +3,6 @@ package ju.controller;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +11,6 @@ import java.util.TreeMap;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.collections.map.HashedMap;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -243,7 +240,9 @@ public class FindController {
 	
 	@RequestMapping(value="/test.ju")
 	public ModelAndView test(){
-		File f = new File("F:\\LOG\\book\\searchList.log");
+		File f = new File("../LOG/book/searchList.log");
+		
+		System.out.println("경로 :" + f.getAbsoluteFile().getPath());
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		ValueComparator bvc =  new ValueComparator(map);
         TreeMap<String,Integer> sorted_map = new TreeMap<String,Integer>(bvc);
@@ -257,6 +256,7 @@ public class FindController {
 				String s;
 				
 				while ((s = in.readLine()) != null) {
+					System.out.println("s : "+s);
 					String arr[] = s.split("/");
 					
 					for (int i = 0; i < arr.length; i++) {

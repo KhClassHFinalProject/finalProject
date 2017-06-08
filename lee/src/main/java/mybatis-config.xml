@@ -6,5 +6,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 				<!--example -->
 		 <mapper resource="sql/memberSQL.xml"/>
+		 <mapper resource="sql/bkfindSql.xml"/>
 	</mappers>  
 </configuration>
