@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="/lee/resources/mainMenu/jquery.smartmenus.min.js"></script>
 <link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-core-css.css">
-<link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-clean.css">
+<link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-clean/sm-clean.css">
 <style type="text/css">
 	#mainImg{
 		height: 100px;
@@ -95,10 +95,10 @@
 	}
 	
 	.loginColor{
-		color : #0bd392;
+		color : #ffffff;
 	}
 	.loginColor:HOVER {
-		color: #1aa4ac;
+		color: #000000;
 	}
 </style>
 
@@ -132,7 +132,7 @@
 			  <span class="main-menu-btn-icon"></span> Toggle main menu visibility
 			</label>
 			<ul id="main-menu" class="sm sm-clean">
-				<li><a href="/lee/index.ju">Home</a></li>
+				<li><a href="#/lee/index.ju">Home</a></li>
 				<li><a href="#/lee/libMaster.ju">도서관 소개</a>
 					<ul>
 						<li><a href="#/lee/libMaster.ju">도서관장 인사말</a></li>
@@ -144,7 +144,7 @@
 					</ul>
 				</li>
 				<li><a href="#/lee/bkList.ju">일반도서 검색</a></li>
-				<li><a href="/lee/ebookMain.ju">전자도서관</a>
+				<li><a href="#/lee/ebookMain.ju">전자도서관</a>
 					<ul>
 						<li><a href="#/lee/ebook.ju">전자도서</a></li>
 						<li><a href="#/lee/eAudio.ju">오디오북</a></li>
