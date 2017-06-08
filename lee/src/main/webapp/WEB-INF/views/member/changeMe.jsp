@@ -41,7 +41,7 @@
 		$('#collapseTwo').show('slow');
 		$('#collapseTwo').addClass('in');
 		
-		
+		$('.modal').css('display','none');
 	};
 	
 	</script>
@@ -104,33 +104,16 @@
       	<!-- 아이디 -->
 						      	<div>
 						      	<label for="sel1">아이디</label>
-							        <div class="input-group" style="width: 70%;">
+							        <div class="input-group" style="width:300px;">
 							         	
 									 	<span class="col-md-4" style="margin:0;padding:0; width:250px;">
-									 		<input type="text" id="idid"class="form-control" placeholder="6~20자 (한글 및 특수문자 금지)" aria-describedby="basic-addon2" style="width:250px;" required>
+									 		<input type="text" id="idid"class="form-control"  aria-describedby="basic-addon2" style="width:300px;" readonly required>
 									 	</span>	
-									  	<span class="input-group-addon col-md-1" id="basic-addon1" style="height:34px;padding-right:20px;padding-top:10px;background-color:white; border: 0px;">@</span>
+									  	
 										
-										 <div class="col-lg-3" style="padding:0;">
-										    <div class="input-group" style="width:20%;">
-										      <input id="emailInput" type="text" class="form-control" aria-label="..." style="width:250px;" readonly="readonly" required>
-										      <div class="input-group-btn">
-										        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">메일선택 <span class="caret"></span></button>
-										        	<ul class="dropdown-menu dropdown-menu-right" role="menu">
-										          <li onclick="javascript:mailselect('hanmail.net');"><a >hanmail.net</a></li>
-										          <li onclick="javascript:mailselect('naver.com');"><a >naver.com</a></li>
-										          <li onclick="javascript:mailselect('gmail.com');"><a >gmail.com</a></li>
-										          <li onclick="javascript:mailselect('hotmail.com');"><a >hotmail.com</a></li>
-										          <li onclick="javascript:mailselect('msn.co.kr');"><a >msn.co.kr</a></li>
-										          <li class="divider"></li>
-										          <li onclick="javascript:selfinput();"><a >직접입력</a></li>
-										        </ul>
-										      </div><!-- /btn-group -->
-						   					</div><!-- /input-group -->
-						   				</div>	
+										 
 									</div>
-									<div><button id="checEmailid" class="btn btn-primary col-md-6" data-toggle="modal" data-target="#checkId" >
-							      이메일 중복검사</button></div>
+									
 								</div>
 						<br><br><br>
 								<!-- 비밀번호 -->
@@ -149,7 +132,7 @@
 						        <label for="sel1">이 름</label>
 						        <div class="input-group">
 																			<!-- 이름 -->
-								  <input type="text" id="memname" class="form-control" placeholder="6~20자 (한글 및 특수문자 금지)" aria-describedby="basic-addon2" style="width:300px;" required>	
+								  <input type="text" id="memname" class="form-control"  aria-describedby="basic-addon2" style="width:300px;" readonly required>	
 								</div>
 						<br>
 						        <hr>
@@ -220,8 +203,8 @@
 						        <!-- 비밀번호 힌트 -->
 						        <span class="input-group">
 						        	<label for="sel1">비밀번호 힌트</label>
-									 
-									<select class="form-control" id="pwdhint">
+									 <br>
+									<select class="form-control" id="pwdhint" style="width:300px;">
 										<option value="0">나의 첫사랑 이름은 ?</option>
 										<option value="1">내가 다녔던 초등학교는 ?</option>
 										<option value="2">나에게 영감을 주는 사람은 ?</option>
@@ -233,8 +216,8 @@
 						        
 						        <!-- 비밀번호 찾기 답 -->
 						        <span class="input-group" id="selfinput" required >
-						       <label for="sel1">비밀번호 답변</label>
-									<input type="text" id="pwdanswer"class="form-control" aria-describedby="sizing-addon2" >
+						       <label for="sel1">비밀번호 답변</label><br>
+									<input type="text" id="pwdanswer"class="form-control" aria-describedby="sizing-addon2" style="width:300px;">
 								</span>
 						        <br>
 						        <br>
@@ -244,9 +227,9 @@
 						        <div style="width:100%;">
 						        <table>
 						        	<tr>
-										<td><input id="jumin" type="text" class="form-control" aria-describedby="sizing-addon2" maxlength="8" placeholder="예) 19900401" required></td>
+										<td><input id="jumin" type="text" class="form-control" aria-describedby="sizing-addon2" maxlength="8" readonly required></td>
 										<td><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></td>
-										<td><input id="jumin2" type="text" class="form-control" aria-describedby="sizing-addon2" style="width:40px;" maxlength="1" required></td>
+										<td><input id="jumin2" type="text" class="form-control" aria-describedby="sizing-addon2" style="width:40px;" maxlength="1" readonly required></td>
 										<td>
 											<!-- * 기호 -->
 											<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
