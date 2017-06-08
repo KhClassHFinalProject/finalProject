@@ -6,9 +6,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
-	
+
 	@RequestMapping("/index.ju")
 	public ModelAndView index(){
-		return new ModelAndView("index");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
 	}
 }

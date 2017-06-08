@@ -13,7 +13,7 @@
 			'testmj',
 			#{rr_start},
 			#{rr_start}+(1/12),
-			'0~3',
+			'0/3',
 			#{rr_start}
 		)
 	</insert>

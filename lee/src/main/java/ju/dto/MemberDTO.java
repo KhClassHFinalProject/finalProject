@@ -1,6 +1,7 @@
 package ju.dto;
 
 public class MemberDTO {
+
 	private String mem_idx;
 	private String mem_id;
 	private String mem_pwd;
@@ -8,17 +9,16 @@ public class MemberDTO {
 	private String mem_hp;
 	private String mem_addr;
 	private int mem_hint;
-	private String mem_answer;
+	private String mem_anser;
 	private String mem_birth;
 	private int mem_like;
 	
-	
 	public MemberDTO() {
-		
+		super();
 	}
-	
+
 	public MemberDTO(String mem_idx, String mem_id, String mem_pwd, String mem_name, String mem_hp, String mem_addr,
-			int mem_hint, String mem_answer, String mem_birth, int mem_like) {
+			int mem_hint, String mem_anser, String mem_birth, int mem_like) {
 		super();
 		this.mem_idx = mem_idx;
 		this.mem_id = mem_id;
@@ -27,7 +27,7 @@ public class MemberDTO {
 		this.mem_hp = mem_hp;
 		this.mem_addr = mem_addr;
 		this.mem_hint = mem_hint;
-		this.mem_answer = mem_answer;
+		this.mem_anser = mem_anser;
 		this.mem_birth = mem_birth;
 		this.mem_like = mem_like;
 	}
@@ -88,12 +88,12 @@ public class MemberDTO {
 		this.mem_hint = mem_hint;
 	}
 
-	public String getMem_answer() {
-		return mem_answer;
+	public String getMem_anser() {
+		return mem_anser;
 	}
 
-	public void setMem_answer(String mem_answer) {
-		this.mem_answer = mem_answer;
+	public void setMem_anser(String mem_anser) {
+		this.mem_anser = mem_anser;
 	}
 
 	public String getMem_birth() {
@@ -111,5 +111,7 @@ public class MemberDTO {
 	public void setMem_like(int mem_like) {
 		this.mem_like = mem_like;
 	}
+
+	
 	
 }
