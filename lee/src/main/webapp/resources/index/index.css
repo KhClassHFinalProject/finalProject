@@ -6,7 +6,7 @@
 	@MEDIA (min-width: 768px){ /*데스크탑 대응*/
 		
 		body{
-			width:90%;
+			width:768px;
 			margin: auto;
 		}
 		#imgg{
@@ -20,18 +20,11 @@
 			margin-top:30%;
 			padding-top:80px;
 		}
-		.container-fluid bg-3 text-center{
-			height:500px;
-		}
 	}
 	@MEDIA (max-width: 767px){ /* 모바일 대응*/
 		body{
-		width:auto;
-		margin: 0 10%;
-		}
-		.container-fluid bg-3 text-center{
-			height:150px;
-			margin-bottom: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
 		}
 		.jumbotron{
     	width:100%;

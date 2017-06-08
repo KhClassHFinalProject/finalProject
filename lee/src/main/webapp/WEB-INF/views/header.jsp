@@ -1,12 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="/lee/resources/mainMenu/jquery.smartmenus.min.js"></script>
 <link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-core-css.css">
-<link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-clean/sm-clean.css">
+<link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-clean.css">
 <style type="text/css">
+body{
+	width: 1300px;
+	margin: auto;
+}
+@media (max-width:768px) {
+body{
+	width: auto;
+	margin: 0 10%;
+}
+}
+/**헤더 CSS 시작*/
 	#mainImg{
 		height: 100px;
 		background: yellow;
 	}
+
 	
 	.main-menu-btn {
 		position: relative;
@@ -95,11 +107,12 @@
 	}
 	
 	.loginColor{
-		color : #ffffff;
+		color : #0bd392;
 	}
 	.loginColor:HOVER {
-		color: #000000;
+		color: #1aa4ac;
 	}
+/**헤더 CSS 끝*/
 </style>
 
 <script type="text/javascript">
@@ -132,19 +145,19 @@
 			  <span class="main-menu-btn-icon"></span> Toggle main menu visibility
 			</label>
 			<ul id="main-menu" class="sm sm-clean">
-				<li><a href="#/lee/index.ju">Home</a></li>
-				<li><a href="#/lee/libMaster.ju">도서관 소개</a>
+				<li><a href="/lee/index.ju">Home</a></li>
+				<li><a href="/lee/libMaster.ju">도서관 소개</a>
 					<ul>
-						<li><a href="#/lee/libMaster.ju">도서관장 인사말</a></li>
-						<li><a href="#/lee/libHistory.ju">도서관 연혁</a></li>
-						<li><a href="#/lee/libInside.ju">층별소개</a></li>
-						<li><a href="#/lee/libMap.ju">오시는길</a></li>
-						<li><a href="#/lee/libStatus.ju">장서정보(소장도서정보)</a></li>
-						<li><a href="#/lee/libGuide.ju">이용안내</a></li>
+						<li><a href="/lee/libMaster.ju">도서관장 인사말</a></li>
+						<li><a href="/lee/libHistory.ju">도서관 연혁</a></li>
+						<li><a href="/lee/libInside.ju">층별소개</a></li>
+						<li><a href="/lee/libMap.ju">오시는길</a></li>
+						<li><a href="/lee/libStatus.ju">장서정보(소장도서정보)</a></li>
+						<li><a href="/lee/libGuide.ju">이용안내</a></li>
 					</ul>
 				</li>
 				<li><a href="#/lee/bkList.ju">일반도서 검색</a></li>
-				<li><a href="#/lee/ebookMain.ju">전자도서관</a>
+				<li><a href="/lee/ebookMain.ju">전자도서관</a>
 					<ul>
 						<li><a href="#/lee/ebook.ju">전자도서</a></li>
 						<li><a href="#/lee/eAudio.ju">오디오북</a></li>
@@ -160,14 +173,14 @@
 					</ul>
 				</li>
 				<li><a href="#/lee/learningIndex.ju">평생교육</a></li>
-				<li><a href="#/lee/noticeList.ju">고객지원서비스</a>
+				<li><a href="/lee/noticeList.ju">고객지원서비스</a>
 					<ul>
-						<li><a href="#/lee/noticeList.ju">공지사항</a></li>
-						<li><a href="#/lee/missingList.ju">분실물</a></li>
-						<li><a href="#/lee/faqList.ju">FAQ</a></li>
-						<li><a href="#/lee/questList.ju">QnA</a></li>
-						<li><a href="#/lee/otherBkList.ju">희망도서신청</a></li>
-						<li><a href="#/lee/reviewList.ju">책추천 및 감상평</a></li>
+						<li><a href="/lee/noticeList.ju">공지사항</a></li>
+						<li><a href="/lee/missingList.ju">분실물</a></li>
+						<li><a href="/lee/faqList.ju">FAQ</a></li>
+						<li><a href="/lee/questList.ju">QnA</a></li>
+						<li><a href="/lee/orderBkList.ju">희망도서신청</a></li>
+						<li><a href="/lee/reviewList.ju">책추천 및 감상평</a></li>
 					</ul>
 				</li>
 			</ul>
