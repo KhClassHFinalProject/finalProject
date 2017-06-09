@@ -1,8 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="/lee/resources/mainMenu/jquery.smartmenus.min.js"></script>
 <link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-core-css.css">
-<link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-clean/sm-clean.css">
+<link rel="stylesheet" href="/lee/resources/mainMenu/css/sm-clean.css">
 <style type="text/css">
+body{
+	width: 90%;
+	margin: auto;
+}
+@media (max-width: 768px) {
+	body{
+		width: auto;
+		margin: 0 10%;
+	}
+}
+/**헤더 CSS 시작*/
 	#mainImg{
 		height: 100px;
 		background: yellow;
@@ -95,11 +106,12 @@
 	}
 	
 	.loginColor{
-		color : #ffffff;
+		color : #0bd392;
 	}
 	.loginColor:HOVER {
-		color: #000000;
+		color: #1aa4ac;
 	}
+/**헤더 CSS 끝*/
 </style>
 
 <script type="text/javascript">
@@ -132,7 +144,7 @@
 			  <span class="main-menu-btn-icon"></span> Toggle main menu visibility
 			</label>
 			<ul id="main-menu" class="sm sm-clean">
-				<li><a href="#/lee/index.ju">Home</a></li>
+				<li><a href="/lee/index.ju">Home</a></li>
 				<li><a href="#/lee/libMaster.ju">도서관 소개</a>
 					<ul>
 						<li><a href="#/lee/libMaster.ju">도서관장 인사말</a></li>
@@ -144,12 +156,12 @@
 					</ul>
 				</li>
 				<li><a href="#/lee/bkList.ju">일반도서 검색</a></li>
-				<li><a href="#/lee/ebookMain.ju">전자도서관</a>
+				<li><a href="/lee/ebookMain.ju">전자도서관</a>
 					<ul>
-						<li><a href="#/lee/ebook.ju">전자도서</a></li>
-						<li><a href="#/lee/eAudio.ju">오디오북</a></li>
-						<li><a href="#/lee/eMagazine.ju">E-Magazine</a></li>
-						<li><a href="#/lee/eEdu.ju">교육</a></li>
+						<li><a href="/lee/ebook.ju">전자도서</a></li>
+						<li><a href="/lee/eMagazine.ju">전자잡지</a></li>
+						<li><a href="/lee/eAudio.ju">오디오북</a></li>
+						<li><a href="/lee/eEdu.ju">e-교육</a></li>
 					</ul>
 				</li>
 				<li><a href="#/lee/bookingIndex.ju">이용예약</a>
@@ -166,7 +178,7 @@
 						<li><a href="#/lee/missingList.ju">분실물</a></li>
 						<li><a href="#/lee/faqList.ju">FAQ</a></li>
 						<li><a href="#/lee/questList.ju">QnA</a></li>
-						<li><a href="#/lee/otherBkList.ju">희망도서신청</a></li>
+						<li><a href="#/lee/orderBkList.ju">희망도서신청</a></li>
 						<li><a href="#/lee/reviewList.ju">책추천 및 감상평</a></li>
 					</ul>
 				</li>
