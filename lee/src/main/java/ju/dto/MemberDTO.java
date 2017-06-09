@@ -1,6 +1,7 @@
 package ju.dto;
 
 public class MemberDTO {
+
 	private String mem_idx;
 	private String mem_id;
 	private String mem_pwd;
@@ -12,11 +13,10 @@ public class MemberDTO {
 	private String mem_birth;
 	private int mem_like;
 	
-	
 	public MemberDTO() {
-		
+		super();
 	}
-	
+
 	public MemberDTO(String mem_idx, String mem_id, String mem_pwd, String mem_name, String mem_hp, String mem_addr,
 			int mem_hint, String mem_answer, String mem_birth, int mem_like) {
 		super();
@@ -111,5 +111,7 @@ public class MemberDTO {
 	public void setMem_like(int mem_like) {
 		this.mem_like = mem_like;
 	}
+
+	
 	
 }

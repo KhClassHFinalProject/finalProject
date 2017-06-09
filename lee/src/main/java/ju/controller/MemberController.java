@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 //import ju.dto.*;
 import ju.member.model.*;
+import ju.member.model.MemberDAO;
 import ju.model.*;
 import ju.dto.*;
 
@@ -115,7 +116,6 @@ public class MemberController {
 		
 		EmailDAO dao = new EmailDAO();
 		dao.sendEmail2(mem_id, code);
-		
 		
 		try {
 			System.out.println("code 저장 = "+code);
